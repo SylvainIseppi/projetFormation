@@ -17,6 +17,9 @@ import java.awt.Insets;
 import java.awt.Color;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
+
+import com.formation.requete.RequeteConnexion;
+
 import javax.swing.JTextPane;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -92,6 +95,11 @@ public class Connexion extends JFrame {
 		JButton btnValider = new JButton("Valider");
 		btnValider.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String mdp="";
+				for (char unchar : passwordField.getPassword()) {
+					mdp+=unchar;
+				}
+				RequeteConnexion.getUser(textUser.getText(),mdp);
 			}
 		});
 		btnValider.setFont(new Font("Tahoma", Font.PLAIN, 14));
