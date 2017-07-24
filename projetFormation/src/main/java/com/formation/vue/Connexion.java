@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 import javax.swing.SwingConstants;
@@ -158,5 +159,9 @@ public class Connexion extends JFrame {
 		panelGlobal2.setBounds(10, 0, 414, 135);
 		panelGlobal.add(panelGlobal2);
 		panelGlobal2.setLayout(null);
+	
+	}
+	public  void erreurCo(){
+		JOptionPane.showMessageDialog(this,"Erreur de connexion");
 	}
 }
