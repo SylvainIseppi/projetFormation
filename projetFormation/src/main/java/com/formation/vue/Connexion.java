@@ -1,20 +1,33 @@
 package com.formation.vue;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import java.awt.Toolkit;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import java.awt.Window.Type;
 import javax.swing.ImageIcon;
 import java.awt.Font;
-import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import java.awt.GridBagLayout;
+import javax.swing.JButton;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 import java.awt.Color;
+import javax.swing.border.CompoundBorder;
 import javax.swing.border.LineBorder;
+import javax.swing.JTextPane;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class Connexion {
+public class Connexion extends JFrame {
 
-	private JFrame frmSarlLuna;
+	private JPanel contentPane;
+	private JTextField textUser;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -23,8 +36,8 @@ public class Connexion {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Connexion window = new Connexion();
-					window.frmSarlLuna.setVisible(true);
+					Connexion frame = new Connexion();
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -33,40 +46,109 @@ public class Connexion {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the frame.
 	 */
 	public Connexion() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frmSarlLuna = new JFrame();
-		frmSarlLuna.setTitle("SARL Luna");
-		frmSarlLuna.setIconImage(Toolkit.getDefaultToolkit().getImage(Connexion.class.getResource("/images/Moon-32.png")));
-		frmSarlLuna.setBounds(100, 100, 450, 300);
-		frmSarlLuna.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmSarlLuna.getContentPane().setLayout(null);
+		setTitle("SARL LUNA");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JLabel lblConnexionAuProgramme = new JLabel("Connexion au programme");
-		lblConnexionAuProgramme.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblConnexionAuProgramme.setBounds(5, 5, 424, 48);
+		lblConnexionAuProgramme.setHorizontalAlignment(SwingConstants.CENTER);
+		lblConnexionAuProgramme.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblConnexionAuProgramme.setIcon(new ImageIcon(Connexion.class.getResource("/images/connection/Shopping-Cart-05-48.png")));
-		lblConnexionAuProgramme.setBounds(87, 11, 238, 48);
-		frmSarlLuna.getContentPane().add(lblConnexionAuProgramme);
+		contentPane.add(lblConnexionAuProgramme);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(Color.CYAN, 2, true));
-		panel.setBackground(Color.WHITE);
-		panel.setBounds(10, 70, 414, 144);
-		frmSarlLuna.getContentPane().add(panel);
-		panel.setLayout(null);
+		JPanel panelBoutons = new JPanel();
+		panelBoutons.setBounds(5, 199, 424, 57);
+		contentPane.add(panelBoutons);
+		panelBoutons.setLayout(null);
 		
-		JLabel lblNomDutilisateur = new JLabel("Nom d'utilisateur");
-		lblNomDutilisateur.setIcon(new ImageIcon(Connexion.class.getResource("/images/connection/Windows-8-Login-16.png")));
-		lblNomDutilisateur.setBounds(10, 11, 112, 23);
-		panel.add(lblNomDutilisateur);
+		JButton btnParamtres = new JButton("Param\u00E8tres");
+		btnParamtres.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnParamtres.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnParamtres.setBounds(0, 0, 153, 57);
+		btnParamtres.setIcon(new ImageIcon(Connexion.class.getResource("/images/connection/Customize-01-48.png")));
+		panelBoutons.add(btnParamtres);
+		
+		JButton btnQuitter = new JButton("Quitter");
+		btnQuitter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnQuitter.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnQuitter.setBounds(174, 0, 123, 57);
+		btnQuitter.setIcon(new ImageIcon(Connexion.class.getResource("/images/connection/Stop-48.png")));
+		panelBoutons.add(btnQuitter);
+		
+		JButton btnValider = new JButton("Valider");
+		btnValider.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnValider.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnValider.setBounds(301, 0, 123, 57);
+		btnValider.setIcon(new ImageIcon(Connexion.class.getResource("/images/connection/Power-48.png")));
+		btnValider.setForeground(Color.WHITE);
+		btnValider.setHorizontalTextPosition(SwingConstants.LEADING);
+		panelBoutons.add(btnValider);
+		
+		JPanel panelGlobal = new JPanel();
+		panelGlobal.setBounds(0, 53, 434, 141);
+		contentPane.add(panelGlobal);
+		panelGlobal.setLayout(null);
+		
+		JLabel lblUser = new JLabel("Nom d'utilisateur");
+		lblUser.setHorizontalAlignment(SwingConstants.CENTER);
+		lblUser.setBounds(10, 11, 126, 17);
+		lblUser.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		panelGlobal.add(lblUser);
+		
+		JLabel lblUser2 = new JLabel("");
+		lblUser2.setIcon(new ImageIcon(Connexion.class.getResource("/images/connection/Windows-8-Login-16.png")));
+		lblUser2.setBounds(137, 11, 16, 20);
+		panelGlobal.add(lblUser2);
+		
+		textUser = new JTextField();
+		textUser.setBounds(163, 11, 251, 20);
+		panelGlobal.add(textUser);
+		textUser.setColumns(10);
+		
+		JLabel lblPassword = new JLabel("Mot de passe");
+		lblPassword.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblPassword.setBounds(10, 39, 143, 17);
+		panelGlobal.add(lblPassword);
+		
+		JLabel lblPassword2 = new JLabel("");
+		lblPassword2.setIcon(new ImageIcon(Connexion.class.getResource("/images/connection/Key-16.png")));
+		lblPassword2.setBounds(137, 39, 16, 20);
+		panelGlobal.add(lblPassword2);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(163, 42, 251, 20);
+		panelGlobal.add(passwordField);
+		
+		JTextPane txtpnInfo = new JTextPane();
+		txtpnInfo.setForeground(Color.GRAY);
+		txtpnInfo.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtpnInfo.setText("Veuillez saisir\r\nle nom de l'utilisateur et le mot de passe\r\npour acc\u00E9der \u00E0 l'application");
+		txtpnInfo.setBounds(20, 67, 394, 68);
+		panelGlobal.add(txtpnInfo);
+		
+		JPanel panelGlobal2 = new JPanel();
+		panelGlobal2.setBorder(new EmptyBorder(14, 14, 14, 14));
+		panelGlobal2.setBackground(Color.WHITE);
+		panelGlobal2.setBounds(10, 0, 414, 135);
+		panelGlobal.add(panelGlobal2);
+		panelGlobal2.setLayout(null);
 	}
-
 }
