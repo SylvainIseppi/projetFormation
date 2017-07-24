@@ -3,30 +3,18 @@ package com.formation.vue;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import java.awt.Color;
-
+import java.awt.Toolkit;
 import javax.swing.JLabel;
-import javax.swing.text.Element;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import java.awt.SystemColor;
-import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JTextArea;
-import javax.swing.BorderFactory;
-import javax.swing.JEditorPane;
-import javax.swing.UIManager;
+import java.awt.Window.Type;
 import javax.swing.ImageIcon;
+import java.awt.Font;
+import javax.swing.JPanel;
+import java.awt.Color;
+import javax.swing.border.LineBorder;
+
 public class Connexion {
 
-	private JFrame frame;
-	private JTextField login;
-	private JPasswordField password;
-	/**
-	 * @wbp.nonvisual location=93,69
-	 */
+	private JFrame frmSarlLuna;
 
 	/**
 	 * Launch the application.
@@ -36,7 +24,7 @@ public class Connexion {
 			public void run() {
 				try {
 					Connexion window = new Connexion();
-					window.frame.setVisible(true);
+					window.frmSarlLuna.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -55,43 +43,30 @@ public class Connexion {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmSarlLuna = new JFrame();
+		frmSarlLuna.setTitle("SARL Luna");
+		frmSarlLuna.setIconImage(Toolkit.getDefaultToolkit().getImage(Connexion.class.getResource("/images/Moon-32.png")));
+		frmSarlLuna.setBounds(100, 100, 450, 300);
+		frmSarlLuna.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmSarlLuna.getContentPane().setLayout(null);
+		
+		JLabel lblConnexionAuProgramme = new JLabel("Connexion au programme");
+		lblConnexionAuProgramme.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblConnexionAuProgramme.setIcon(new ImageIcon(Connexion.class.getResource("/images/connection/Shopping-Cart-05-48.png")));
+		lblConnexionAuProgramme.setBounds(87, 11, 238, 48);
+		frmSarlLuna.getContentPane().add(lblConnexionAuProgramme);
 		
 		JPanel panel = new JPanel();
-		panel.setForeground(SystemColor.textHighlight);
-		panel.setBounds(10, 49, 394, 159);
-		panel.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.blue));
-		frame.getContentPane().add(panel);
+		panel.setBorder(new LineBorder(Color.CYAN, 2, true));
+		panel.setBackground(Color.WHITE);
+		panel.setBounds(10, 70, 414, 144);
+		frmSarlLuna.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		JLabel TxtLogin = new JLabel("nom d'utilisateur");
-		TxtLogin.setHorizontalAlignment(SwingConstants.LEFT);
-		TxtLogin.setIcon(new ImageIcon(Connexion.class.getResource("/images/connection/Windows-8-Login-16.png")));
-		TxtLogin.setBounds(10, 11, 113, 14);
-		panel.add(TxtLogin);
-		
-		login = new JTextField();
-		TxtLogin.setLabelFor(login);
-		login.setBounds(139, 8, 113, 20);
-		panel.add(login);
-		login.setColumns(10);
-		
-		password = new JPasswordField();
-		password.setBounds(139, 39, 113, 20);
-		panel.add(password);
-		
-		JLabel TxtMdp = new JLabel("mot de passe");
-		TxtMdp.setBounds(10, 42, 94, 14);
-		panel.add(TxtMdp);
-		
-		JEditorPane dtrpnVeuillezSaisirLe = new JEditorPane();
-		dtrpnVeuillezSaisirLe.setEnabled(false);
-		dtrpnVeuillezSaisirLe.setEditable(false);
-		dtrpnVeuillezSaisirLe.setText("veuillez saisir le nom de l'utilisateur et le mot de passe pour acceder a l'application");
-		dtrpnVeuillezSaisirLe.setBounds(10, 67, 113, 81);
-		panel.add(dtrpnVeuillezSaisirLe);
+		JLabel lblNomDutilisateur = new JLabel("Nom d'utilisateur");
+		lblNomDutilisateur.setIcon(new ImageIcon(Connexion.class.getResource("/images/connection/Windows-8-Login-16.png")));
+		lblNomDutilisateur.setBounds(10, 11, 112, 23);
+		panel.add(lblNomDutilisateur);
 	}
+
 }
