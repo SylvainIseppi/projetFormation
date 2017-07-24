@@ -8,6 +8,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 import com.formation.basesql.ConnexionBdd;
+import com.formation.objet.User;
 import com.formation.vue.Connexion;
 
 public class RequeteConnexion {
@@ -22,6 +23,7 @@ public class RequeteConnexion {
 			/* Récupération des données du résultat de la requête de lecture */
 			if(resultat.next()!=false){
 				System.out.println("connexion ok");
+				User droit=User.getUser(resultat.getInt( "role" ), resultat.getString( "login" ));
 
 			}
 			else{
@@ -29,8 +31,8 @@ public class RequeteConnexion {
 				Connexion c=new Connexion();
 				c.erreurCo();
 				
+				
 			}
-			System.out.println(login + mdp);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
