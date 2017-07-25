@@ -78,8 +78,8 @@ public class Connexion extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnParamtres.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		btnParamtres.setBounds(0, 0, 153, 57);
+		btnParamtres.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnParamtres.setBounds(0, 0, 149, 57);
 		btnParamtres.setIcon(new ImageIcon(Connexion.class.getResource("/images/connection/Customize-01-48.png")));
 		panelBoutons.add(btnParamtres);
 		
@@ -88,8 +88,8 @@ public class Connexion extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnQuitter.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		btnQuitter.setBounds(174, 0, 123, 57);
+		btnQuitter.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		btnQuitter.setBounds(169, 0, 130, 57);
 		btnQuitter.setIcon(new ImageIcon(Connexion.class.getResource("/images/connection/Stop-48.png")));
 		panelBoutons.add(btnQuitter);
 		
@@ -103,7 +103,7 @@ public class Connexion extends JFrame {
 				RequeteConnexion.getUser(textUser.getText(),mdp);
 			}
 		});
-		btnValider.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnValider.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		btnValider.setBounds(301, 0, 123, 57);
 		btnValider.setIcon(new ImageIcon(Connexion.class.getResource("/images/connection/Power-48.png")));
 		btnValider.setForeground(Color.WHITE);
