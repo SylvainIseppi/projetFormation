@@ -24,6 +24,7 @@ public class RequeteConnexion {
 			if(resultat.next()!=false){
 				System.out.println("connexion ok");
 				User droit=User.getUser(resultat.getInt( "role" ), resultat.getString( "login" ));
+				System.out.println("blabla");
 
 			}
 			else{
